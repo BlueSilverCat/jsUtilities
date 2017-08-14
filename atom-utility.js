@@ -1,7 +1,7 @@
 "use babel";
 
 import { createElementWithClass, isNode, setEventListener } from "./html-utility";
-import { isEmptyObject, isEmptyString } from "./utility";
+import { isEmpty, isEmptyObject, isEmptyString } from "./utility";
 
 function makeMiniEditor(text) {
   let editor = atom.workspace.buildTextEditor();
@@ -29,7 +29,7 @@ function makeMiniEditorWithView(text, cla) {
 function getActivatePackage(packageName) {
   let pack = atom.packages.getActivePackage(packageName);
 
-  if (!pack) {
+  if (isEmpty(pack) === true) {
     pack = atom.packages.enablePackage(packageName);
   }
   return pack;

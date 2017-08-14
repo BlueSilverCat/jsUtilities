@@ -150,9 +150,16 @@ function returnValueIfEmpty(str, value) {
   return str;
 }
 
+function isEmpty(obj) {
+  if (typeof obj === "undefined" || obj === null) {
+    return true;
+  }
+  return false;
+}
+
 //enumerable を含めるかどうかで分けないといけないかも
 function isEmptyObject(obj) {
-  if (typeof obj === "undefined" || obj === null) {
+  if (isEmpty(obj) === true) {
     return true;
   }
   if (Object.getOwnPropertyNames(obj).length === 0) {
@@ -163,7 +170,7 @@ function isEmptyObject(obj) {
 }
 
 function isEmptyString(str) {
-  if (typeof str === "undefined" || str === null || str === "") {
+  if (isEmpty(str) === true || str === "") {
     return true;
   }
   return false;
@@ -618,6 +625,7 @@ export {
   getSubStr,
   setTargetProperty,
   returnValueIfEmpty,
+  isEmpty,
   isEmptyObject,
   isEmptyString,
   checkVal,
