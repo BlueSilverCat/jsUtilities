@@ -593,7 +593,7 @@ function filterArrayThreshold(array, min = null, max = null) {
 
 function splitWithSeparator(string, separator = "") {
   let result = string.split(separator);
-  for (let i = 0; i < result.length; i++) {
+  for (let i = 0; i < result.length - 1; i++) {
     result[i] += separator;
   }
   return result;
